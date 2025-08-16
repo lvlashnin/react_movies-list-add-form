@@ -17,12 +17,12 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
     imdbId: '',
   });
 
-  const handleBlur = () => {
+  const isOnBlur = () => {
     setIsActiveSubmit(
-      newMovie.title !== '' &&
-        newMovie.imgUrl !== '' &&
-        newMovie.imdbUrl !== '' &&
-        newMovie.imdbId !== '',
+      newMovie.title.trim() !== '' &&
+        newMovie.imgUrl.trim() !== '' &&
+        newMovie.imdbUrl.trim() !== '' &&
+        newMovie.imdbId.trim() !== '',
     );
   };
 
@@ -31,7 +31,7 @@ export const NewMovie: React.FC<Props> = ({ onAdd }) => {
       ...prev,
       [name]: value,
     }));
-    handleBlur();
+    isOnBlur();
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
